@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //定义可变长度的函数 rest
+        function __max() {
+            //需要使用arguments对象 - 局部变量
+            console.log(arguments);
+        }
+        __max(1, 2);
+        __max(1, 2, 3);
+    </script>
+
+    <script>
+        //使用剩余参数获取实参列表
+        function __max(...args) {
+            //返回一个由实参组成的真数组
+            //它可以直接替代arguments对象来获取实参 
+            //区别是需要定义接收的剩余参数名 以...形式
+            console.log(args);
+        }
+        __max(1, 2, 3);
+    </script>
+
+    <script>
+        function __max(a, ...args) {
+            console.log(args); //[2,3]
+        }
+        __max(1, 2, 3);
+    </script>
+
+    <script>
+        
+        //剩余参数列表集合数组 可以通过解构赋值提取
+        //  [a,b,c] = [1,2,3] = args
+        function add(...[a, b, c]) {
+            // return args[0] + args[1] + args[2];
+            return a + b + c;
+        }
+
+        var sum = add(1, 2, 3);
+        console.log(sum);
+    </script>
+
+    <!-- 剩余参数的语法 主要用来替代arguments，因为在某些场合（箭头函数中）没有自己的arguments
+        同时也是语言发展的趋势，在PHP较高的版本中也增加了类似剩余参数的语法 -->
+
+</body>
+
+</html>
